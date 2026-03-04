@@ -231,7 +231,173 @@ pre{font-family:'Share Tech Mono',monospace;font-size:12px;line-height:1.8;color
 
 /* ── TWO COL ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:700px){.two-col{grid-template-columns:1fr}.sidebar{width:100%;height:auto;position:relative}.main{margin-left:0}}
+/* ═══════════════════════════════════════════════════════
+   FULL RESPONSIVE SYSTEM — ALL SCREEN SIZES
+   ═══════════════════════════════════════════════════════ */
+
+/* ── HAMBURGER BUTTON (hidden on desktop) ── */
+.mob-menu-btn{display:none;align-items:center;justify-content:center;width:38px;height:38px;background:var(--glass2);border:1px solid var(--border);border-radius:8px;cursor:pointer;flex-shrink:0;transition:all .2s;margin-right:4px}
+.mob-menu-btn:hover{border-color:var(--border2);box-shadow:var(--glow)}
+.mob-menu-btn span{display:block;width:18px;height:1.5px;background:var(--cyan);border-radius:1px;transition:all .3s;box-shadow:0 0 4px var(--cyan)}
+.mob-menu-btn span+span{margin-top:4px}
+.mob-menu-btn.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.mob-menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.mob-menu-btn.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+/* ── OVERLAY BACKDROP ── */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99;backdrop-filter:blur(4px)}
+.sidebar-overlay.visible{display:block}
+
+/* ── TABLET: 768px–1024px ── */
+@media(max-width:1024px){
+  .sidebar{width:240px}
+  .main{margin-left:240px}
+  .hud-header{padding:10px 20px;gap:12px}
+  .hud-title{font-size:11px;letter-spacing:2px}
+  .content-area{padding:0 20px 60px}
+  .hero{padding:40px 20px 32px}
+  .phase-title{font-size:18px}
+  .two-col{grid-template-columns:1fr 1fr;gap:12px}
+  .concept-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .how-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .exercise-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+}
+
+/* ── MOBILE: max 768px ── */
+@media(max-width:768px){
+
+  /* Layout: sidebar becomes slide-in overlay */
+  .shell{display:block}
+  .main{margin-left:0;min-height:100vh}
+
+  /* Sidebar: off-canvas, slides in from left */
+  .sidebar{
+    position:fixed;top:0;left:0;
+    width:280px;max-width:85vw;
+    height:100vh;
+    transform:translateX(-100%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+    z-index:200;
+    border-right:1px solid var(--border2);
+    box-shadow:4px 0 40px rgba(0,0,0,.8);
+  }
+  .sidebar.open{transform:translateX(0)}
+
+  /* Show hamburger */
+  .mob-menu-btn{display:flex}
+
+  /* HUD header: stack items, show hamburger */
+  .hud-header{
+    padding:10px 14px;
+    gap:8px;
+    flex-wrap:nowrap;
+    position:sticky;top:0;z-index:150;
+  }
+  .hud-title{font-size:10px;letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+  #phase-indicator{display:none}
+  .hud-status{gap:8px}
+  .status-text:last-child,.hud-status div:nth-child(3){display:none}
+  .status-text{font-size:9px;letter-spacing:.5px}
+
+  /* Content area */
+  .content-area{padding:0 14px 60px}
+
+  /* Hero */
+  .hero{padding:28px 16px 24px}
+  .arc-reactor{width:90px;height:90px;margin:0 auto 20px}
+  .hero-eyebrow{font-size:9px;letter-spacing:2px}
+  .hero-desc{font-size:13px;margin-bottom:20px}
+  .hero-stats{gap:8px;justify-content:center}
+  .stat{padding:10px 14px}
+  .stat-val{font-size:22px}
+  .stat-label{font-size:9px}
+
+  /* Phase header */
+  .phase-header{padding:20px 0 16px;gap:12px;align-items:flex-start}
+  .phase-badge{width:48px;height:48px;border-radius:8px}
+  .phase-badge-num{font-size:14px}
+  .phase-title{font-size:16px;letter-spacing:.5px}
+  .phase-subtitle{font-size:10px;letter-spacing:1px;line-height:1.5}
+  .phase-meta{gap:6px}
+  .meta-tag{font-size:9px;padding:2px 7px}
+
+  /* Glass cards */
+  .glass-card{padding:16px 14px;margin-bottom:14px}
+  .card-title{font-size:11px;letter-spacing:1.5px;margin-bottom:12px}
+
+  /* Grids → single column on mobile */
+  .two-col{grid-template-columns:1fr;gap:12px}
+  .concept-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .how-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .exercise-grid{grid-template-columns:1fr;gap:10px}
+  .what-you-build{grid-template-columns:1fr}
+
+  /* Concept items */
+  .concept-item{padding:10px 12px}
+  .concept-icon{font-size:16px;margin-bottom:4px}
+  .concept-name{font-size:11px}
+  .concept-desc{font-size:10px}
+
+  /* How cards */
+  .how-card{padding:14px 12px}
+  .how-num{font-size:22px}
+  .how-icon{font-size:22px;margin-bottom:8px}
+  .how-body{font-size:10px}
+
+  /* Project showcase */
+  .project-showcase{padding:16px 14px}
+  .project-name{font-size:13px}
+  .project-desc{font-size:12px;margin-bottom:12px}
+  .build-item{font-size:11px}
+
+  /* Code blocks — horizontal scroll, smaller font */
+  .code-body{padding:12px 14px}
+  pre{font-size:10px;line-height:1.7}
+  .code-header{padding:7px 12px}
+  .code-lang{font-size:8px}
+
+  /* Tips */
+  .jarvis-tip{padding:12px 12px;gap:8px}
+  .tip-text{font-size:11px}
+
+  /* Roadmap steps */
+  .roadmap-step{gap:12px}
+  .step-circle{width:28px;height:28px;font-size:9px}
+  .step-content{padding:2px 0 18px}
+  .step-title{font-size:12px}
+  .step-body{font-size:11px}
+
+  /* Omega banner */
+  .omega-banner{padding:20px 16px}
+  .omega-title{font-size:18px}
+
+  /* Nav controls */
+  .nav-controls{flex-direction:column;gap:8px;padding:16px 0 40px;align-items:stretch}
+  .nav-btn-ctrl{padding:12px 16px;font-size:10px;text-align:center;letter-spacing:1px}
+
+  /* Info boxes */
+  .info-box{font-size:11px;padding:12px 12px}
+
+  /* Exercise cards */
+  .exercise-card{padding:14px 12px}
+
+  /* Scroll tables */
+  table{font-size:11px}
+}
+
+/* ── SMALL MOBILE: max 420px ── */
+@media(max-width:420px){
+  .concept-grid{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr}
+  .hero-stats{gap:6px}
+  .stat{padding:8px 12px}
+  .stat-val{font-size:20px}
+  .hud-title{font-size:9px;max-width:110px}
+  .phase-title{font-size:14px}
+  pre{font-size:9.5px}
+  .hero{padding:20px 12px 20px}
+  .content-area{padding:0 10px 60px}
+}
 
 /* ── OMEGA / FINAL SECTION ── */
 .omega-banner{background:linear-gradient(135deg,rgba(255,23,68,0.06),rgba(255,107,53,0.08));border:1px solid rgba(255,23,68,0.3);border-radius:12px;padding:28px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden}
@@ -331,6 +497,9 @@ pre{font-family:'Share Tech Mono',monospace;font-size:12px;line-height:1.8;color
 <!-- ═══════════════════════════════ MAIN ═══════════════════════════════ -->
 <main class="main">
   <div class="hud-header">
+    <button class="mob-menu-btn" id="mob-menu-btn" aria-label="Open navigation" onclick="toggleSidebar()">
+      <span></span><span></span><span></span>
+    </button>
     <div class="hud-title">PYTHON MASTERY PROTOCOL</div>
     <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text2)" id="phase-indicator">PHASE 00 :: HOW TO USE</div>
     <div class="hud-status">
@@ -340,6 +509,7 @@ pre{font-family:'Share Tech Mono',monospace;font-size:12px;line-height:1.8;color
       <div class="status-text">TOP 1% MODE</div>
     </div>
   </div>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
   <div class="content-area">
 
@@ -1670,9 +1840,46 @@ const phaseIndicator = document.getElementById('phase-indicator');
 const visited = new Set([0]);
 const phaseNames = ['HOW TO USE','CORE SYSTEMS','LOGIC GATES','SUBROUTINES','DATA MATRICES','OBJECT PROTOCOL','FILE INTERFACE','NETWORK UPLINK','DATA CORE','NEURAL ANALYTICS','AUTO SYSTEMS','ADV PROTOCOLS','OMEGA SEQUENCE'];
 
+/* ── Sidebar toggle (mobile) ── */
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const btn     = document.getElementById('mob-menu-btn');
+  const isOpen  = sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('visible', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  // Prevent body scroll when sidebar open
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+function closeSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const btn     = document.getElementById('mob-menu-btn');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('visible');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Close sidebar on Escape key */
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeSidebar(); });
+
+/* Close sidebar on swipe left */
+let touchStartX = 0;
+document.querySelector('.sidebar').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+document.querySelector('.sidebar').addEventListener('touchend', e => {
+  if(touchStartX - e.changedTouches[0].clientX > 60) closeSidebar();
+}, {passive:true});
+
 function showPhase(n, btn) {
   phases.forEach(p => p.classList.remove('active'));
-  navBtns.forEach(b => { b.classList.remove('active'); b.style.background='transparent'; b.style.borderLeft='2px solid transparent'; });
+  navBtns.forEach(b => {
+    b.classList.remove('active');
+    b.style.background='transparent';
+    b.style.borderLeft='2px solid transparent';
+  });
   document.getElementById('phase-' + n).classList.add('active');
   if(btn) {
     btn.classList.add('active');
@@ -1685,14 +1892,30 @@ function showPhase(n, btn) {
   progBar.style.width = pct + '%';
   progText.textContent = 'MODULE ' + (visited.size-1) + ' / 12 VISITED';
   const name = phaseNames[n] || '';
-  phaseIndicator.textContent = 'PHASE ' + (n < 10 ? '0'+n : n===12?'Ω':n) + ' :: ' + name;
-  document.querySelector('.main').scrollTo(0,0);
-  window.scrollTo(0,0);
+  if(phaseIndicator) phaseIndicator.textContent = 'PHASE ' + (n < 10 ? '0'+n : n===12?'Ω':n) + ' :: ' + name;
+  // Scroll to top of content
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelector('.main')?.scrollTo({top:0,behavior:'smooth'});
+  // Auto-close sidebar on mobile after selection
+  if(window.innerWidth <= 768) closeSidebar();
 }
 
-// Init first button
+// Init first button styling
 const firstBtn = document.querySelector('[data-phase="0"]');
-if(firstBtn){ firstBtn.style.background='rgba(0,212,255,0.08)'; firstBtn.style.borderLeft='2px solid #00d4ff'; }
+if(firstBtn){
+  firstBtn.style.background='rgba(0,212,255,0.08)';
+  firstBtn.style.borderLeft='2px solid #00d4ff';
+}
+
+// Close sidebar if window resized to desktop
+window.addEventListener('resize', () => {
+  if(window.innerWidth > 768) {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('visible');
+    document.getElementById('mob-menu-btn').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 </script>
 </body>
 </html>
