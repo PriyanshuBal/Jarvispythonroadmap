@@ -1831,6 +1831,212 @@ results = asyncio.<span class="fn">run</span>(<span class="fn">fetch_all_paralle
 </main>
 </div><!-- /shell -->
 
+<!-- ═══════════════════ SIGNATURE FOOTER ═══════════════════ -->
+<footer class="sig-footer">
+  <div class="sig-scanline"></div>
+  <div class="sig-inner">
+
+    <!-- Arc pulse -->
+    <div class="sig-arc">
+      <div class="sig-arc-ring sig-arc-ring-1"></div>
+      <div class="sig-arc-ring sig-arc-ring-2"></div>
+      <div class="sig-arc-ring sig-arc-ring-3"></div>
+      <div class="sig-arc-core"></div>
+    </div>
+
+    <!-- Quote -->
+    <div class="sig-quote">
+      &ldquo;The ones who are crazy enough to think they can change the world<br class="sig-br"> are the ones who do.&rdquo;
+    </div>
+
+    <!-- Divider line -->
+    <div class="sig-divider">
+      <div class="sig-divider-line"></div>
+      <div class="sig-divider-diamond">◆</div>
+      <div class="sig-divider-line"></div>
+    </div>
+
+    <!-- Name -->
+    <div class="sig-built-by">DESIGNED &amp; BUILT BY</div>
+    <div class="sig-name">Priyanshu_Bal</div>
+    <div class="sig-tagline">Architect of the JARVIS Python Mastery Protocol</div>
+
+    <!-- Bottom bar -->
+    <div class="sig-bottom">
+      <span class="sig-copy">© 2025 Priyanshu_Bal</span>
+      <span class="sig-dot-sep">·</span>
+      <span class="sig-stack">Python · HTML · CSS · JavaScript</span>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+/* ── SIGNATURE FOOTER ─────────────────────────────────── */
+.sig-footer{
+  position:relative;
+  background:rgba(0,0,0,0.6);
+  border-top:1px solid rgba(0,212,255,0.2);
+  overflow:hidden;
+  padding:56px 24px 40px;
+  text-align:center;
+  z-index:2;
+}
+/* top glow beam */
+.sig-footer::before{
+  content:'';position:absolute;top:0;left:50%;
+  transform:translateX(-50%);
+  width:60%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  box-shadow:0 0 24px rgba(0,212,255,0.5);
+}
+/* subtle radial bg */
+.sig-footer::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(0,60,120,0.12),transparent);
+  pointer-events:none;
+}
+
+/* scan-line texture */
+.sig-scanline{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,212,255,0.012) 3px,rgba(0,212,255,0.012) 4px);
+  pointer-events:none;z-index:0;
+}
+
+.sig-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+
+/* ── ARC REACTOR ── */
+.sig-arc{
+  width:72px;height:72px;margin:0 auto 28px;
+  position:relative;
+}
+.sig-arc-ring{
+  position:absolute;border-radius:50%;border-style:solid;
+  border-color:transparent;
+}
+.sig-arc-ring-1{
+  inset:0;border-width:1.5px;
+  border-top-color:rgba(0,212,255,0.6);
+  border-right-color:rgba(0,212,255,0.2);
+  animation:sig-spin 6s linear infinite;
+}
+.sig-arc-ring-2{
+  inset:10px;border-width:1px;
+  border-bottom-color:rgba(0,212,255,0.5);
+  border-left-color:rgba(0,212,255,0.15);
+  animation:sig-spin 4s linear infinite reverse;
+}
+.sig-arc-ring-3{
+  inset:18px;border-width:1px;
+  border-top-color:rgba(0,255,234,0.4);
+  animation:sig-spin 3s linear infinite;
+}
+.sig-arc-core{
+  position:absolute;inset:22px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,0.95) 10%,rgba(0,120,255,0.6) 50%,transparent);
+  box-shadow:0 0 18px rgba(0,212,255,0.8),0 0 36px rgba(0,100,255,0.35);
+  animation:sig-pulse 2.2s ease-in-out infinite;
+}
+@keyframes sig-spin{to{transform:rotate(360deg)}}
+@keyframes sig-pulse{
+  0%,100%{box-shadow:0 0 18px rgba(0,212,255,0.8),0 0 36px rgba(0,100,255,0.35)}
+  50%{box-shadow:0 0 28px rgba(0,212,255,1),0 0 56px rgba(0,150,255,0.5)}
+}
+
+/* ── QUOTE ── */
+.sig-quote{
+  font-family:'Exo 2',sans-serif;
+  font-size:clamp(13px,2.2vw,17px);
+  font-weight:300;
+  font-style:italic;
+  color:rgba(200,230,240,0.7);
+  line-height:1.75;
+  letter-spacing:0.3px;
+  margin-bottom:28px;
+  position:relative;
+  padding:0 12px;
+}
+.sig-quote::before{
+  content:'\275D';
+  position:absolute;top:-12px;left:0;
+  font-size:40px;font-style:normal;
+  color:rgba(0,212,255,0.12);
+  font-family:Georgia,serif;line-height:1;
+}
+.sig-br{display:none}
+@media(min-width:480px){.sig-br{display:inline}}
+
+/* ── DIVIDER ── */
+.sig-divider{
+  display:flex;align-items:center;gap:10px;
+  margin:0 auto 24px;max-width:300px;
+}
+.sig-divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.3))}
+.sig-divider-line:last-child{background:linear-gradient(90deg,rgba(0,212,255,0.3),transparent)}
+.sig-divider-diamond{
+  font-size:8px;color:var(--cyan);
+  text-shadow:0 0 8px var(--cyan);
+  animation:sig-pulse 2s ease-in-out infinite;
+  flex-shrink:0;
+}
+
+/* ── NAME BLOCK ── */
+.sig-built-by{
+  font-family:'Share Tech Mono',monospace;
+  font-size:9px;letter-spacing:4px;
+  color:rgba(0,212,255,0.45);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.sig-name{
+  font-family:'Orbitron',monospace;
+  font-size:clamp(22px,5vw,36px);
+  font-weight:900;
+  letter-spacing:2px;
+  background:linear-gradient(135deg,var(--cyan) 0%,#00ffea 40%,var(--gold) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-shadow:none;
+  filter:drop-shadow(0 0 16px rgba(0,212,255,0.5));
+  margin-bottom:8px;
+  animation:sig-name-glow 3s ease-in-out infinite alternate;
+}
+@keyframes sig-name-glow{
+  from{filter:drop-shadow(0 0 10px rgba(0,212,255,0.4))}
+  to{filter:drop-shadow(0 0 24px rgba(0,212,255,0.8)) drop-shadow(0 0 40px rgba(0,255,200,0.3))}
+}
+.sig-tagline{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;
+  color:rgba(0,212,255,0.4);
+  text-transform:uppercase;
+  margin-bottom:32px;
+}
+
+/* ── BOTTOM BAR ── */
+.sig-bottom{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;color:rgba(200,230,240,0.25);
+  border-top:1px solid rgba(0,212,255,0.07);
+  padding-top:16px;
+}
+.sig-dot-sep{color:rgba(0,212,255,0.3)}
+.sig-stack{color:rgba(0,212,255,0.3)}
+
+/* Mobile tweaks for footer */
+@media(max-width:768px){
+  .sig-footer{padding:40px 16px 32px}
+  .sig-arc{width:56px;height:56px;margin-bottom:20px}
+  .sig-quote{font-size:13px;margin-bottom:20px}
+  .sig-tagline{font-size:9px;letter-spacing:1px}
+  .sig-bottom{font-size:9px;gap:7px}
+}
+</style>
+
 <script>
 const phases = document.querySelectorAll('.phase-section');
 const navBtns = document.querySelectorAll('.phase-btn');
